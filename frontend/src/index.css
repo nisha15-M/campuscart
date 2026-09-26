@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color: #14231c;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: "Inter", system-ui, sans-serif;
+  background-color: #faf6ec;
+  background-image: radial-gradient(rgba(20, 35, 28, 0.07) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+::selection {
+  background: #efad3e;
+  color: #14231c;
+}
+
+/* Thin ledger-style scrollbar for horizontal strips */
+.ledger-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+.ledger-scroll::-webkit-scrollbar-thumb {
+  background: rgba(31, 75, 58, 0.35);
+  border-radius: 999px;
+}
+
+/* Ticket-stub card: perforated notches on the left+right edges */
+.ticket-stub {
+  position: relative;
+}
+.ticket-stub::before,
+.ticket-stub::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 18px;
+  height: 18px;
+  background: #faf6ec;
+  border-radius: 999px;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+.ticket-stub::before {
+  left: -9px;
+}
+.ticket-stub::after {
+  right: -9px;
+}
+
+/* Rotated stamp badge, like an ink-stamped seal of approval */
+.stamp {
+  transform: rotate(-6deg);
+}
+
+/* Dashed "stitched" border used on campus-ledger cards */
+.stitched {
+  border: 2px dashed rgba(20, 35, 28, 0.18);
+}
+
+/* Underline squiggle used for highlighted words in headings */
+.squiggle-underline {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='12' viewBox='0 0 120 12'%3E%3Cpath d='M2 8c10-8 20-8 30 0s20 8 30 0 20-8 30 0 20 8 26 0' fill='none' stroke='%23E3941F' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-position: bottom 2px left;
+  background-size: 90px 10px;
+}
+
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-ticker {
+  animation: ticker 28s linear infinite;
+}
+.animate-ticker:hover {
+  animation-play-state: paused;
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) rotate(-3deg); }
+  50% { transform: translateY(-10px) rotate(2deg); }
+}
+.animate-float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+@keyframes pop-in {
+  from { opacity: 0; transform: translateY(8px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.animate-pop-in {
+  animation: pop-in 0.35s ease-out;
+}
