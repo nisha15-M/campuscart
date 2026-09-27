@@ -76,3 +76,6 @@ and start listing items.
   request (an `Order`) to each seller; nothing is charged automatically.
 - Rotate the `JWT_SECRET` and any database credentials in `.env` before
   deploying this anywhere public.
+## Deployment
+
+Live Application: https://campuscart-t1xl.onrender.comgit status
